@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --background: 220 27% 8%;
+  --foreground: 220 9% 98%;
+  --card: 220 27% 12%;
+  --card-foreground: 220 9% 98%;
+  --popover: 220 27% 12%;
+  --popover-foreground: 220 9% 98%;
+  --primary: 195 100% 50%;
+  --primary-foreground: 220 27% 8%;
+  --secondary: 220 27% 16%;
+  --secondary-foreground: 220 9% 98%;
+  --muted: 220 27% 16%;
+  --muted-foreground: 220 9% 63%;
+  --accent: 195 100% 50%;
+  --accent-foreground: 220 27% 8%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 220 9% 98%;
+  --border: 220 27% 16%;
+  --input: 220 27% 16%;
+  --ring: 195 100% 50%;
+  --radius: 0.75rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gradient-dark text-foreground font-inter antialiased;
+  background-attachment: fixed;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20;
+}
+
+.glass-blue {
+  @apply bg-electric/10 backdrop-blur-md border border-electric/30;
+}
+
+.text-gradient {
+  @apply bg-gradient-electric bg-clip-text text-transparent;
+}
+
+.text-gradient-neon {
+  @apply bg-gradient-neon bg-clip-text text-transparent;
+}
+
+.glow {
+  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5));
+}
+
+.glow-neon {
+  filter: drop-shadow(0 0 20px rgba(57, 255, 20, 0.5));
+}
+
+.glow-purple {
+  filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.5));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-darkBlue;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-electric/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-electric/70;
+}
+/* Hide default cursor on desktop */
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
+  
+  /* Show cursor on form elements for better UX */
+  input, textarea, select {
+    cursor: text !important;
+  }
+}
+
+/* Cursor trail effect */
+.cursor-trail {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: rgba(0, 212, 255, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9996;
+  mix-blend-mode: screen;
+}
